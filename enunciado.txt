@@ -1,0 +1,61 @@
+Què he de fer?
+Hem vist com fer un classificador sobre el conjunt de dades Iris(), que conté dades de flors del gènere Iris. 
+
+Així mateix, en l'activitat d'aprenentatge 3.2 d'aquest lliurament hem configurat un projecte que implementa un classificador de les flors Iris, emprant aquests models:
+
+Regressió logística
+Màquines de suport vectorial (SVM, Support Vector Machine)
+Arbres de decisió (Decision Trees)
+K veïnats més propers (KNN, k-Nearest Neighbours)
+
+En aquesta tasca farem el mateix, però sobre un altre dataset, el dels pingüins de l'arxipèlag de Palmer. Aquest dataset s'ha convertit en el substitut del de les flors Iris com al més representatiu per a problemes de classificació a partir de diverses variables. El dataset conté diverses dades de 343 individus de pingüins de tres espècies diferents que es troben a tres illes de l'Arxipèlag Palmer de l'Antàrtida. 
+
+Tenim diverses maneres de descarregar el dataset. La primera és des de Kaggle (fitxer penguins_size.csv). També, podeu importar-lo mitjançant la llibreria Seaborn, emprant sns.load_dataset("penguins"), que ens retorna un dataframe de pandas:
+
+import pandas as pd
+import seaborn as sns
+
+df = sns.load_dataset("penguins")
+df.head()  
+
+
+Aquestes són les dades de cada individu:
+
+species (espècie de pingüí: Chinstrap, Adélie o Gentoo)
+island (illa: Dream, Torgersen o Biscoe)
+bill_length_mm (longitud del bec en mm)
+bill_depth_mm (profunditat del bec en mm)
+flipper_length_mm (longitud de l'aleta en mm)
+body_mass_g (massa corporal en grams)
+sex (sexe: Male o Female)
+Nota: els camps del dataset de Kaggle són lleugerament diferents: en lloc de bill_length_mm i bill_depth_mm es diuen culmen_length_mm i culmen_depth_mm.
+
+
+
+Alguns pingüins tenen valors 'NA' (not available) en algunes columnes. Per simplificar, anem a esborrar del dataset totes les files que tenguin algun valor 'NA'.
+
+Una vegada tenguis preparat el dataset, has de dividir-lo en dues parts:
+
+Un 80% per a dades d'entrenament
+Un 20% per a dades de prova
+
+
+La variable objectiu del nostre classificador serà l'espècie de pingüí (species). És convenient representar-la mitjançant valors numèrics. 
+
+Emprarem totes les altres variables per al model de classificació. Tingues present que hauràs de fer una codificació one-hot (mitjançant un DictVectorizer) de les variables categòriques. Així mateix, també has de normalitzar amb un escalat estàndard les variables numèriques, de manera que la seva mitjana passi a ser 0 i la desviació típica passi a ser 1. Els paràmetres de la normalització (mitjana i desviació típica) es calculen a partir del conjunt d'entrenament i la normalització s'ha d'aplicar als dos conjunts, d'entrenament i de prova.
+
+El que has de fer ara és, seguint com a model el nostre cas pràctic i l'activitat d'aprenentatge, configurar un projecte, emprant Conda i Visual Studio Code (o un altre entorn de desenvolupament), on has de configurar i entrenar els quatre models que hem mencionat anteriorment. Pots implementar aquesta part mitjançant un quadern Jupyter (o quatre, un per a cada model) o bé un script Python (o quatre, un per a cada model), el que prefereixis.
+
+A més, una vegada entrenats, has de serialitzar i desplegar els models: has de donar un servei web (emprant Flask) a cada un dels models per poder fer prediccions a partir d'unes dades d'un nou exemplar de pingüí. 
+
+Seguidament, has de crear un client que interactuï amb el servidor enviant peticions als serveis (almenys dues peticions a cada model) i mostrant les respostes.
+
+Per últim, puja el teu projecte a un repositori de GitHub i fes-lo públic.
+
+
+Com ho he de fer?
+Fes un document amb Word, Write o Docs i inclou-hi la URL del teu repositori de GitHub (assegura't que sigui públic!).
+Inclou-hi també les següents captures de pantalla:
+Estructura del projecte dins Visual Studio Code (o l'entorn que hagis emprat), on es vegin desplegades totes les carpetes.
+Contingut del fitxer YAML (environment.yml) final que contengui els paquets empleats. Per això, haureu de fer l'exportació de la configuració tal com es mostra als apunts.
+Execució del client que fa les peticions als models, on es vegi també la resposta obtinguda. Comenta també el resultat. Com a mínim has d'incloure les captures corresponents a dues peticions per a cada un dels 4 models: totes han d'aparèixer en el document, amb la seva resposta i el seu comentari del resultat.
