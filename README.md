@@ -137,20 +137,6 @@ POST /predict/<model_name>
 # model_name: logistic_regression, svm, decision_tree, knn
 ```
 
-
-## Resultats
-
-Els 4 models han estat entrenats i avaluats amb el conjunt de test. Els resultats típics són:
-
-| Model | Accuracy |
-|-------|----------|
-| Regressió Logística | ~98% |
-| SVM | ~99% |
-| Arbres de Decisió | ~95% |
-| KNN | ~97% |
-
-*Nota: Els resultats poden variar lleugerament segons la divisió train/test*
-
 ## Tecnologies Utilitzades
 
 - **Python 3.11+**
