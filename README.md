@@ -2,7 +2,7 @@
 
 Projecte de classificació d'espècies de pingüins de l'arxipèlag Palmer utilitzant 4 models diferents de Machine Learning.
 
-## 📋 Descripció
+## Descripció
 
 Aquest projecte implementa i compara 4 models de classificació per predir l'espècie d'un pingüí (Adelie, Chinstrap o Gentoo) basant-se en les seves característiques físiques:
 
@@ -11,7 +11,7 @@ Aquest projecte implementa i compara 4 models de classificació per predir l'esp
 - **Arbres de Decisió (Decision Trees)**
 - **KNN (k-Nearest Neighbours)**
 
-## 📊 Dataset
+## Dataset
 
 S'utilitza el dataset **Palmer Penguins**, disponible a través de la llibreria seaborn, que conté dades de 344 pingüins de 3 espècies diferents.
 
@@ -26,7 +26,7 @@ S'utilitza el dataset **Palmer Penguins**, disponible a través de la llibreria 
 ### Variable objectiu:
 - `species`: Espècie del pingüí (Adelie, Chinstrap, Gentoo)
 
-## 🗂️ Estructura del Projecte
+## Estructura del Projecte
 
 ```
 tasca3/
@@ -43,9 +43,9 @@ tasca3/
 └── requirements.txt
 ```
 
-## 🚀 Instal·lació i Configuració
+## Instal·lació i Configuració
 
-### Opció 1: Utilitzant pip
+### Opció 1: Utilitzant pip (El meu cas)
 
 ```bash
 # Crear entorn virtual
@@ -74,7 +74,7 @@ conda activate penguins
 conda install scikit-learn pandas seaborn flask jupyter ipykernel
 ```
 
-## 📓 Ús dels Notebooks
+## Ús dels Notebooks
 
 ### 1. Preparació de Dades
 ```bash
@@ -107,7 +107,7 @@ Aquest notebook:
 - Prova cada model amb diferents exemples
 - Compara les prediccions
 
-## 🌐 Serveis Web
+## Serveis Web
 
 ### Iniciar el servidor Flask
 
@@ -137,38 +137,8 @@ POST /predict/<model_name>
 # model_name: logistic_regression, svm, decision_tree, knn
 ```
 
-**Exemple de petició:**
-```bash
-curl -X POST http://localhost:5000/predict/logistic_regression \
-  -H "Content-Type: application/json" \
-  -d '{
-    "island": "biscoe",
-    "bill_length_mm": 45.2,
-    "bill_depth_mm": 16.6,
-    "flipper_length_mm": 191.0,
-    "body_mass_g": 3250.0,
-    "sex": "male"
-  }'
-```
 
-**Exemple de resposta:**
-```json
-{
-  "model": "logistic_regression",
-  "input": {...},
-  "prediction": {
-    "species": "Adelie",
-    "probabilities": {
-      "Adelie": 0.85,
-      "Chinstrap": 0.10,
-      "Gentoo": 0.05
-    },
-    "confidence": 0.85
-  }
-}
-```
-
-## 📈 Resultats
+## Resultats
 
 Els 4 models han estat entrenats i avaluats amb el conjunt de test. Els resultats típics són:
 
@@ -181,7 +151,7 @@ Els 4 models han estat entrenats i avaluats amb el conjunt de test. Els resultat
 
 *Nota: Els resultats poden variar lleugerament segons la divisió train/test*
 
-## 🛠️ Tecnologies Utilitzades
+## Tecnologies Utilitzades
 
 - **Python 3.11+**
 - **scikit-learn**: Models de Machine Learning
@@ -191,10 +161,10 @@ Els 4 models han estat entrenats i avaluats amb el conjunt de test. Els resultat
 - **Jupyter**: Notebooks interactius
 - **pickle**: Serialització de models
 
-## 👥 Autor
+## Autor
 
 Juan Ignacio Akrich Vazquez
 
-## 📝 Llicència
+## Llicència
 
 Aquest projecte és amb finalitats educatives.

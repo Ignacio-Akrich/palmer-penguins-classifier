@@ -18,7 +18,9 @@ models = {}
 model_names = ['logistic_regression', 'svm', 'decision_tree', 'knn']
 
 for model_name in model_names:
-    model_path = f'../models/{model_name}_model.pkl'
+    # Construir el path absolut basant-nos en la ubicació del script
+    script_dir = os.path.dirname(os.path.abspath(__file__))
+    model_path = os.path.join(script_dir, '..', 'models', f'{model_name}_model.pkl')
     try:
         models[model_name] = load_model(model_path)
         print(f"✓ Model {model_name} carregat correctament")
